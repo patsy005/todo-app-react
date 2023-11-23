@@ -16,21 +16,14 @@ import Attribution from './Attribution'
 import Msg from './Msg'
 
 function App() {
-	const storedTodos = JSON.parse(localStorage.getItem('todos'))
 	const [mode, setMode] = useState('dark')
 	const [todo, setTodo] = useState('')
-	// const [todos, setTodos] = useState(storedTodos === null ? [] : storedTodos)
-	const [todos, setTodos] = useState(storedTodos)
+	const [todos, setTodos] = useState(todosArr)
 	const [sortedTodos, setSortedTodos] = useState(todos)
 	const [sortMode, setSortMode] = useState('all')
 	const [activeBtn, setActiveBtn] = useState('all')
 
-	// localStorage.clear()
-
-	useEffect(() => {
-		localStorage.setItem('todos', JSON.stringify(todos))
-	}, [todos])
-
+	
 	function handleChangeMode() {
 		setMode(m => (m === 'dark' ? 'light' : 'dark'))
 	}
